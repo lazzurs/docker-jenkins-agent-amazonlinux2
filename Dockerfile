@@ -6,15 +6,15 @@ ARG group=jenkins
 ARG uid=1000
 ARG gid=1000
 
+RUN yum update -y
+RUN yum install -y git java-1.8.0-openjdk.x86_64 shadow-utils
+RUN yum clean all
+
 RUN groupadd -g ${gid} ${group}
 RUN useradd -c "Jenkins user" -d /home/${user} -u ${uid} -g ${gid} -m ${user}
 LABEL Description="This is a base image, which provides the Jenkins agent executable (agent.jar)" Vendor="Jenkins project" Version="${VERSION}"
 
 ARG AGENT_WORKDIR=/home/${user}/agent
-
-RUN yum update -y
-RUN yum install -y git java-1.8.0-openjdk.x86_64
-RUN yum clean all
 
 RUN curl --create-dirs -fsSLo /usr/share/jenkins/agent.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/${VERSION}/remoting-${VERSION}.jar \
   && chmod 755 /usr/share/jenkins \
