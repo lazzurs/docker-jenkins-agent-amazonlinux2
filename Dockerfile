@@ -12,7 +12,7 @@ RUN yum clean all
 
 RUN groupadd -g ${gid} ${group}
 RUN useradd -c "Jenkins user" -d /home/${user} -u ${uid} -g ${gid} -m ${user}
-LABEL Description="This is a base image, which provides the Jenkins agent executable (agent.jar)" Vendor="Jenkins project" Version="${VERSION}"
+LABEL Description="This is a base image, which provides the Jenkins agent executable (agent.jar)" Vendor="Rob Lazzurs" Version="${VERSION}"
 
 ARG AGENT_WORKDIR=/home/${user}/agent
 

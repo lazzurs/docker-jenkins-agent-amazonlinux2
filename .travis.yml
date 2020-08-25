@@ -7,7 +7,7 @@ env:
 
 script:
   - docker build --pull --tag "$IMAGE_NAME" .
-  - docker run "$IMAGE_NAME" cat /etc/os-release | grep -i amazon
+  - docker run --entrypoint /usr/bin/cat "$IMAGE_NAME" /etc/os-release | grep -i amazon
 
 after_script:
   - docker images
