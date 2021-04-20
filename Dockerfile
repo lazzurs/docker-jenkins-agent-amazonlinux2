@@ -1,6 +1,6 @@
 FROM amazonlinux
 
-ARG VERSION=4.3
+ARG VERSION=4.7
 ARG user=jenkins
 ARG group=jenkins
 ARG uid=1000
