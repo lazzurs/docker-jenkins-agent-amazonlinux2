@@ -1,4 +1,4 @@
-FROM amazonlinux
+FROM public.ecr.aws/amazonlinux/amazonlinux:latest
 
 ARG VERSION=4.7
 ARG user=jenkins
