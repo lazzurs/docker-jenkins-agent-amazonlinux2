@@ -1,6 +1,6 @@
 FROM public.ecr.aws/amazonlinux/amazonlinux:latest
 
-ARG VERSION=4.7
+ARG VERSION=4.8
 ARG user=jenkins
 ARG group=jenkins
 ARG uid=1000
