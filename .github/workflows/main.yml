@@ -24,8 +24,10 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     - run: echo "TODAY=$(date +"%Y.%m.%d")" >> $GITHUB_ENV
     - name: build :${{env.TODAY}} image
+    - name: buildx
       uses: docker/setup-buildx-action@v1
-      id: buildx
+    - name: build
+      id: build
       run: |
         docker build -t ghcr.io/lazzurs/jenkins-agent-amazonlinux2:${{env.TODAY}} .
     - name: publish jenkins-agent-amazonlinux2:${{env.TODAY}} image
