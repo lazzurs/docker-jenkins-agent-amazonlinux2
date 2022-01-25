@@ -30,7 +30,7 @@ jobs:
     - name: build :${{env.TODAY}} image
       id: build
       run: |
-        docker build --platform=linux/amd64,linux/arm64 -t ghcr.io/lazzurs/jenkins-agent-amazonlinux2:${{env.TODAY}} .
+        docker buildx build --platform=linux/amd64,linux/arm64 -t ghcr.io/lazzurs/jenkins-agent-amazonlinux2:${{env.TODAY}} .
     - name: publish jenkins-agent-amazonlinux2:${{env.TODAY}} image
       run: |
         docker push ghcr.io/lazzurs/jenkins-agent-amazonlinux2:${{env.TODAY}}
