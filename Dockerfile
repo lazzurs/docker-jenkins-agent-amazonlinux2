@@ -7,7 +7,7 @@ ARG uid=1000
 ARG gid=1000
 
 RUN yum update -y
-RUN yum install -y git make java-11-amazon-corretto.x86_64 shadow-utils zip awscli
+RUN yum install -y git make java-11-amazon-corretto shadow-utils zip awscli
 RUN yum clean all
 
 RUN groupadd -g ${gid} ${group}
