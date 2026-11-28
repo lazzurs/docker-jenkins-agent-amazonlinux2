@@ -1,13 +1,13 @@
 FROM public.ecr.aws/amazonlinux/amazonlinux:latest
 
-ARG VERSION=4.13.3
+ARG VERSION=3396.ve02b_5cde31b_2
 ARG user=jenkins
 ARG group=jenkins
 ARG uid=1000
 ARG gid=1000
 
 RUN yum update -y
-RUN yum install -y git make java-11-amazon-corretto shadow-utils zip awscli
+RUN yum install -y git make java-17-amazon-corretto shadow-utils zip awscli
 RUN yum clean all
 
 RUN groupadd -g ${gid} ${group}
